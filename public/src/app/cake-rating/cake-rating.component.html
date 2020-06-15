@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col s4">
+      <img (click)="onCakeSelect()" src="{{ cake.image_url }}">
+    </div>
+    <div class="col s8">
+      <div class="row">
+        <form (submit)="addRating()">
+          <div class="input-field col s12">
+            <label>{{ ratingLabel }}</label>
+            <select [(ngModel)]="rating" (change)="selectChanged()" class="browser-default" name="rating">
+              <option [ngValue]="0">0 stars</option>
+              <option [ngValue]="1">1 stars</option>
+              <option [ngValue]="2">2 stars</option>
+              <option [ngValue]="3">3 stars</option>
+              <option [ngValue]="4">4 stars</option>
+              <option [ngValue]="5">5 stars</option>
+            </select>
+          </div>
+          <div class="input-field col s12">
+            <textarea [(ngModel)]="comment" class="materialize-textarea" name="comment"></textarea>
+            <label>Type your comment here</label>
+          </div>
+          <div class="input-field col s12 right-align">
+            <button class="waves-effect waves-light btn" type="submit">Rate!</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h3>Rate my Cakes</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form (submit)="createCake()">
+            <div class="card-title">Submit a cake to be rated</div>
+            <div class="input-field">
+                <input [(ngModel)]="baker" type="text" id="baker" name="baker">
+                <label for="baker">Baker Name</label>
+            </div>
+            <div class="input-field">
+              <input [(ngModel)]="imageUrl" type="text" id="image_url" name="image_url">
+              <label for="image_url">Image Url</label>
+            </div>
+            <div class="input-field right-align">
+              <button class="waves-effect waves-light btn" type="submit"> Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7 ratings">
+      <app-cake-rating *ngFor="let cake of cakes; let i = index" [cake]="cake" [index]="i" (cakeSelected)="updateDetails($event)"></app-cake-rating>
+    </div>
+  </div>
+  <app-details *ngIf="selectedCake != -1" [cake]="cakes[selectedCake]" ></app-details>
+</div>

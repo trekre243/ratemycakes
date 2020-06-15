@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col s12">
+      <h4>Baked by {{ cake.baker }}</h4>
+    </div>
+    <div class="col s6">
+      <img [src]="cake.image_url">
+    </div>
+    <div class="col s6">
+      <p><strong>Average rating:</strong> {{ average_rating.toFixed(2) }}</p>
+      <div *ngFor="let rating of cake.ratings">
+        <br>
+        <p>{{ rating.comment }}</p>
+        <p>{{ rating.rating }} {{ rating.rating == 1 ? 'star' : 'stars' }}</p>
+      </div>
+    </div>
+  </div>
